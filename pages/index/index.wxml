@@ -1,3 +1,13 @@
 <!--index.wxml-->
 <view class="container">
+    <swiper class="case-book-swiper">
+        <swiper-item class="case-book-swiper-item" wx:for="{{caseBookList}}" wx:for-item="caseBook" wx:key="id">
+            <view class="case-book-item {{caseBook.waiting ? 'waiting' : ''}}">
+                <image class="case-book-image" src="{{caseBook.url}}" lazy-load></image>
+                <view class="t-con">
+                    <image class="case-book-logo" src="{{caseBook.logo}}" lazy-load></image>
+                </view>
+            </view>
+        </swiper-item>
+    </swiper>
 </view>
