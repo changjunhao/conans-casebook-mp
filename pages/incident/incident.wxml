@@ -1,0 +1,6 @@
+<view class="container">
+    <audio-palyer class="audio-player" src="http://oss-materials.ifable.cn/conan/m2.mp3"></audio-palyer>
+    <scroll-view class="incident-scroll-view" scroll-y enable-back-to-top scroll-anchoring>
+        <view class="incident-view"></view>
+    </scroll-view>
+</view>

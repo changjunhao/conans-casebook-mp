@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "audio-palyer": "/components/audio/audio-player"
+  },
+  "disableScroll": true
+}

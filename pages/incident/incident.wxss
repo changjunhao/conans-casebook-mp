@@ -1,0 +1,17 @@
+.container {
+    height: 100vh;
+    width: 100vw;
+    background: url("http://oss-materials.ifable.cn/conan/m1-bg.jpg") center;
+}
+.audio-player {
+    height: 160rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.incident-scroll-view {
+    height: calc(100vh - 160rpx);
+}
+.incident-view {
+
+}

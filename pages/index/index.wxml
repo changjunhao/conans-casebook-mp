@@ -6,7 +6,7 @@
                 <view class="case-book-item case-book-item-{{index}} {{caseBook.waiting ? 'waiting' : ''}}">
                     <image class="case-book-image" src="{{caseBook.image}}" lazy-load></image>
                     <view class="t-con">
-                        <image class="case-book-logo" src="{{caseBook.logo}}" lazy-load></image>
+                        <image class="case-book-logo" src="{{caseBook.logo}}" data-index="{{index}}" lazy-load catch:tap="handleNavigate"></image>
                     </view>
                 </view>
             </view>

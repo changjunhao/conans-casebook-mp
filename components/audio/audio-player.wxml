@@ -1,0 +1,8 @@
+<view class="audio-player">
+    <view class="controls-play-button" wx:if="{{!playing}}" bind:tap="handlePlay"></view>
+    <view class="controls-pause-button" wx:else bind:tap="handlePause"></view>
+    <view class="controls-current-time">
+        <text>{{currentTime}}</text> / <text>{{duration}}</text>
+    </view>
+    <progress class="controls-timeline" percent="{{percent}}" border-radius="{{2}}" stroke-width="{{4}}" activeColor="rgba(0, 0, 0, 0.87)" backgroundColor="rgba(0, 0, 0, 0.3)"></progress>
+</view>
