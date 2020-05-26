@@ -10,12 +10,20 @@ Component({
   data: {
     audioContext: null,
     playing: false,
-    duration: 0,
-    currentTime: 0,
+    duration: '00:00',
+    currentTime: '00:00',
     percent: 0,
   },
   lifetimes: {
     attached: function() {
+
+    },
+    detached: function() {
+      this.data.audioContext.destroy()
+    },
+  },
+  pageLifetimes: {
+    show: function() {
       const audioContext = wx.createInnerAudioContext()
       audioContext.src = this.data.src
       audioContext.onCanplay((a, b) => {
@@ -40,9 +48,9 @@ Component({
         audioContext
       })
     },
-    detached: function() {
-      this.data.audioContext.destroy()
-    },
+    hide: function() {
+      // this.data.audioContext.destroy()
+    }
   },
   methods: {
     handlePlay: function () {
