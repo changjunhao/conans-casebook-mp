@@ -39,6 +39,16 @@ Component({
           percent: this.data.audioContext.currentTime / this.data.audioContext.duration * 100
         })
       })
+      audioContext.onPlay(() => {
+        this.setData({
+          playing: true
+        })
+      })
+      audioContext.onPause(() => {
+        this.setData({
+          playing: false
+        })
+      })
       audioContext.onEnded(() => {
         this.setData({
           playing: false
@@ -54,15 +64,9 @@ Component({
   },
   methods: {
     handlePlay: function () {
-      this.setData({
-        playing: true
-      })
       this.data.audioContext.play()
     },
     handlePause: function () {
-      this.setData({
-        playing: false
-      })
       this.data.audioContext.pause()
     }
   }
