@@ -8,66 +8,68 @@ Component({
     }
   },
   data: {
-    audioContext: null,
     playing: false,
     duration: '00:00',
     currentTime: '00:00',
     percent: 0,
   },
   lifetimes: {
-    attached: function() {
-
-    },
-    detached: function() {
-      this.data.audioContext.destroy()
-    },
-  },
-  pageLifetimes: {
-    show: function() {
-      const audioContext = wx.createInnerAudioContext()
-      audioContext.src = this.data.src
-      audioContext.onCanplay((a, b) => {
+    created: function() {
+      this.audioContext = wx.createInnerAudioContext()
+      this.audioContext.onCanplay((a, b) => {
         this.setData({
-          duration: util.timeFilter(this.data.audioContext.duration),
-          currentTime: util.timeFilter(this.data.audioContext.currentTime)
+          duration: util.timeFilter(this.audioContext.duration),
+          currentTime: util.timeFilter(this.audioContext.currentTime)
         })
       })
-      audioContext.onTimeUpdate((a, b) => {
+      this.audioContext.onTimeUpdate((a, b) => {
         this.setData({
-          duration: util.timeFilter(this.data.audioContext.duration),
-          currentTime: util.timeFilter(this.data.audioContext.currentTime),
-          percent: this.data.audioContext.currentTime / this.data.audioContext.duration * 100
+          duration: util.timeFilter(this.audioContext.duration),
+          currentTime: util.timeFilter(this.audioContext.currentTime),
+          percent: this.audioContext.currentTime / this.audioContext.duration * 100
         })
       })
-      audioContext.onPlay(() => {
+      this.audioContext.onPlay(() => {
         this.setData({
           playing: true
         })
       })
-      audioContext.onPause(() => {
+      this.audioContext.onPause(() => {
         this.setData({
           playing: false
         })
       })
-      audioContext.onEnded(() => {
+      this.audioContext.onEnded(() => {
         this.setData({
           playing: false
         })
-      })
-      this.setData({
-        audioContext
       })
     },
+    attached: function() {
+    },
+    detached: function() {
+      this.audioContext.offTimeUpdate()
+      this.audioContext.destroy()
+    },
+  },
+  observers: {
+    'src': function(src) {
+      this.audioContext.src = src
+    }
+  },
+  pageLifetimes: {
+    show: function() {
+    },
     hide: function() {
-      // this.data.audioContext.destroy()
+      //this.audioContext.offTimeUpdate()
     }
   },
   methods: {
     handlePlay: function () {
-      this.data.audioContext.play()
+      this.audioContext.play()
     },
     handlePause: function () {
-      this.data.audioContext.pause()
+      this.audioContext.pause()
     }
   }
 })
