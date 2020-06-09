@@ -12,13 +12,13 @@ Page({
     for (let i = 0; i < 21; i++) {
       caseBookList.push({
         id: i + 1,
-        image: `http://oss-materials.ifable.cn/conan/m${i + 1}.jpg?imageView2/0/interlace/1`,
-        url: `http://oss-materials.ifable.cn/conan/m${i + 1}.jpg?imageView2/0/interlace/1`,
-        urlh: `http://oss-materials.ifable.cn/conan/m${i === 20 ? 1 : i + 1}h.jpg?imageView2/0/interlace/1`,
-        logo: `http://oss-materials.ifable.cn/conan/m${i + 1}logo.png`,
-        titleLogo: `http://oss-materials.ifable.cn/conan/m${i + 1}logo.png`,
-        movd: 'http://oss-materials.ifable.cn/conan/mov-d.png',
-        move: 'http://oss-materials.ifable.cn/conan/mov-e.png',
+        image: `https://oss-materials.ifable.cn/conan/m${i + 1}.jpg?imageView2/0/interlace/1`,
+        url: `https://oss-materials.ifable.cn/conan/m${i + 1}.jpg?imageView2/0/interlace/1`,
+        urlh: `https://oss-materials.ifable.cn/conan/m${i === 20 ? 1 : i + 1}h.jpg?imageView2/0/interlace/1`,
+        logo: `https://oss-materials.ifable.cn/conan/m${i + 1}logo.png`,
+        titleLogo: `https://oss-materials.ifable.cn/conan/m${i + 1}logo.png`,
+        movd: 'https://oss-materials.ifable.cn/conan/mov-d.png',
+        move: 'https://oss-materials.ifable.cn/conan/mov-e.png',
         year: 1997 + i,
         waiting: 1997 + i > 2009
       })

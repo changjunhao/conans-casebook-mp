@@ -6,12 +6,13 @@
 	"setting": {
 		"urlCheck": true,
 		"es6": true,
+		"enhance": true,
 		"postcss": true,
 		"preloadBackgroundData": false,
 		"minified": true,
 		"newFeature": true,
 		"coverView": true,
-		"autoAudits": false,
+		"autoAudits": true,
 		"showShadowRootInWxmlPanel": true,
 		"scopeDataCheck": false,
 		"uglifyFileName": false,
@@ -23,11 +24,11 @@
 			"disablePlugins": [],
 			"outputPath": ""
 		},
-		"useCompilerModule": false,
-		"userConfirmedUseCompilerModuleSwitch": false
+		"useCompilerModule": true,
+		"userConfirmedUseCompilerModuleSwitch": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.11.0",
+	"libVersion": "2.11.1",
 	"appid": "wx50384c4282c47155",
 	"projectname": "conan",
 	"debugOptions": {
@@ -64,6 +65,7 @@
 					"id": -1,
 					"name": "pages/incident/incident",
 					"pathName": "pages/incident/incident",
+					"query": "id=1",
 					"scene": null
 				}
 			]
