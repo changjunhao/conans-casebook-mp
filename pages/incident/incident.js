@@ -5,6 +5,7 @@ Page({
     bgUrl: '',
     caseNotice: '',
     section: [],
+    title: '',
   },
   onLoad: function (options) {
     const id = options.id
@@ -23,9 +24,17 @@ Page({
           music: `https://oss-materials.ifable.cn/conan/m${id}.mp3`,
           bgUrl: `https://oss-materials.ifable.cn/conan/m${id}-bg.jpg?imageView2/0/interlace/1`,
           caseNotice: `https://oss-materials.ifable.cn/conan/m${id}-pic-2.png`,
-          section
+          section,
+          title,
         })
       }
     })
+  },
+  onShareAppMessage: function () {
+    return {
+      title: this.data.title,
+      path: `/pages/incident/incident?id=${this.data.id}`,
+      imageUrl: `https://oss-materials.ifable.cn/conan/m${this.data.id}.jpg`
+    }
   }
 })
