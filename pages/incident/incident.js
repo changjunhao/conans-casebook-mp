@@ -7,7 +7,7 @@ Page({
     section: [],
     title: '',
   },
-  onLoad: function (options) {
+  onLoad (options) {
     const id = options.id
     this.setData({
       id,
@@ -30,7 +30,7 @@ Page({
       }
     })
   },
-  onShareAppMessage: function () {
+  onShareAppMessage () {
     return {
       title: this.data.title,
       path: `/pages/incident/incident?id=${this.data.id}`,

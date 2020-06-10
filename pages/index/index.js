@@ -29,11 +29,21 @@ const titles = [
 Page({
   data: {
     caseBookList: [],
-    times: 0,
     current: 0,
+    showGuide: false,
+    showGuideOne: false,
+    showGuideTwo: false,
+    times: 0,
   },
-  onLoad: function (options) {
-    const id = options.id
+  onLoad (options) {
+    const showGuided = wx.getStorageSync('guide')
+    if (!showGuided) {
+      this.setData({
+        showGuide: true,
+        showGuideOne: true,
+      })
+    }
+    const id = options.id || 1
     const caseBookList = []
     for (let i = 0; i < 21; i++) {
       caseBookList.push({
@@ -55,7 +65,7 @@ Page({
       caseBookList: caseBookList
     })
   },
-  onShareAppMessage: function () {
+  onShareAppMessage () {
     const index = this.data.current
     const id = index + 1
     const currentCase = this.data.caseBookList[index]
@@ -65,7 +75,7 @@ Page({
       imageUrl: currentCase.image === currentCase.url ?  `https://oss-materials.ifable.cn/conan/m${id}.jpg` : `https://oss-materials.ifable.cn/conan/m${id}h.jpg`
     }
   },
-  handleRotate: function() {
+  handleRotate () {
     const index = this.data.current
     const rotated = this.data.caseBookList[index].image === this.data.caseBookList[index].urlh
     setTimeout(() => {
@@ -92,7 +102,7 @@ Page({
       { rotateY: !rotated ? -180 : 0 },
     ], 500)
   },
-  handleNavigate: function () {
+  handleNavigate () {
     const index = this.data.current
     if (this.data.caseBookList[index].waiting) {
       wx.showToast({
@@ -105,10 +115,30 @@ Page({
       })
     }
   },
-  handleChange: function (event) {
+  handleChange (event) {
     if (event.detail.source === 'touch') {
       this.setData({
         current: event.detail.current
+      })
+    }
+  },
+  handleGuide () {
+    if (this.data.times === 0) {
+      this.setData({
+        times: 1,
+        showGuideOne: false,
+        showGuideTwo: true
+      })
+    } else if (this.data.times === 1) {
+      this.setData({
+        times: 0,
+        showGuideOne: false,
+        showGuideTwo: false,
+        showGuide: false
+      })
+      wx.setStorage({
+        key: 'guide',
+        data: true
       })
     }
   }

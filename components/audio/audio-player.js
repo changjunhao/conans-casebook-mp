@@ -14,7 +14,7 @@ Component({
     percent: 0,
   },
   lifetimes: {
-    created: function() {
+    created () {
       this.audioContext = wx.createInnerAudioContext()
       this.audioContext.onCanplay((a, b) => {
         this.setData({
@@ -45,9 +45,9 @@ Component({
         })
       })
     },
-    attached: function() {
+    attached () {
     },
-    detached: function() {
+    detached () {
       this.audioContext.offTimeUpdate()
       this.audioContext.destroy()
     },
@@ -58,17 +58,17 @@ Component({
     }
   },
   pageLifetimes: {
-    show: function() {
+    show () {
     },
-    hide: function() {
+    hide () {
       //this.audioContext.offTimeUpdate()
     }
   },
   methods: {
-    handlePlay: function () {
+    handlePlay () {
       this.audioContext.play()
     },
-    handlePause: function () {
+    handlePause () {
       this.audioContext.pause()
     }
   }
