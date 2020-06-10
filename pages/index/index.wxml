@@ -1,8 +1,8 @@
 <!--index.wxml-->
 <view class="container">
-    <swiper class="case-book-swiper">
-        <swiper-item class="case-book-swiper-item" wx:for="{{caseBookList}}" wx:for-item="caseBook" wx:key="id">
-            <view class="case-book-item-block-{{index}}" data-index="{{index}}" bindtap="handleRotate">
+    <swiper class="case-book-swiper" current="{{current}}" bindchange="handleChange">
+        <swiper-item class="case-book-swiper-item" wx:for="{{caseBookList}}" wx:for-item="caseBook" wx:key="id" item-id="{{caseBook.id}}">
+            <view class="case-book-item-block-{{index}}" bindtap="handleRotate">
                 <view class="case-book-item case-book-item-{{index}} {{caseBook.waiting ? 'waiting' : ''}}">
                     <image class="case-book-image" src="{{caseBook.image}}" lazy-load></image>
                     <view class="t-con">

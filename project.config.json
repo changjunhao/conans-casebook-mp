@@ -12,7 +12,7 @@
 		"minified": true,
 		"newFeature": true,
 		"coverView": true,
-		"autoAudits": true,
+		"autoAudits": false,
 		"showShadowRootInWxmlPanel": true,
 		"scopeDataCheck": false,
 		"uglifyFileName": false,
@@ -66,6 +66,13 @@
 					"name": "pages/incident/incident",
 					"pathName": "pages/incident/incident",
 					"query": "id=1",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/index/index",
+					"pathName": "pages/index/index",
+					"query": "id=11",
 					"scene": null
 				}
 			]

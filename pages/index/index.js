@@ -2,16 +2,43 @@
 //获取应用实例
 // const app = getApp()
 
+const titles = [
+  '计时引爆摩天楼',
+  '第十四个目标',
+  '世纪末的魔术师',
+  '瞳孔中的暗杀者',
+  '通往天国的倒计时',
+  '贝克街的亡灵',
+  '迷宫的十字路口',
+  '银翼的魔术师',
+  '水平线上的阴谋',
+  '侦探们的镇魂曲',
+  '蔚蓝的灵柩',
+  '战栗的乐谱',
+  '漆黑的追踪者',
+  '天空的遇难船',
+  '沉默的 15 分钟',
+  '第 11 名王牌',
+  '绝海的侦探',
+  '异次元的狙击手',
+  '业火的向日葵',
+  '纯黑的噩梦',
+  '枫红的恋歌',
+]
+
 Page({
   data: {
     caseBookList: [],
-    times: 0
+    times: 0,
+    current: 0,
   },
-  onLoad: function () {
+  onLoad: function (options) {
+    const id = options.id
     const caseBookList = []
     for (let i = 0; i < 21; i++) {
       caseBookList.push({
         id: i + 1,
+        title: titles[i],
         image: `https://oss-materials.ifable.cn/conan/m${i + 1}.jpg?imageView2/0/interlace/1`,
         url: `https://oss-materials.ifable.cn/conan/m${i + 1}.jpg?imageView2/0/interlace/1`,
         urlh: `https://oss-materials.ifable.cn/conan/m${i === 20 ? 1 : i + 1}h.jpg?imageView2/0/interlace/1`,
@@ -24,11 +51,22 @@ Page({
       })
     }
     this.setData({
+      current: id - 1,
       caseBookList: caseBookList
     })
   },
-  handleRotate: function(event) {
-    const index = Number(event.currentTarget.dataset.index)
+  onShareAppMessage: function () {
+    const index = this.data.current
+    const id = index + 1
+    const currentCase = this.data.caseBookList[index]
+    return {
+      title: currentCase.title,
+      path: index > 12 ? `/pages/index/index?id=${id}` : `/pages/incident/incident?id=${id}`,
+      imageUrl: currentCase.image === currentCase.url ?  `https://oss-materials.ifable.cn/conan/m${id}.jpg` : `https://oss-materials.ifable.cn/conan/m${id}h.jpg`
+    }
+  },
+  handleRotate: function() {
+    const index = this.data.current
     const rotated = this.data.caseBookList[index].image === this.data.caseBookList[index].urlh
     setTimeout(() => {
       this.setData({
@@ -54,8 +92,8 @@ Page({
       { rotateY: !rotated ? -180 : 0 },
     ], 500)
   },
-  handleNavigate: function (event) {
-    const index = event.currentTarget.dataset.index
+  handleNavigate: function () {
+    const index = this.data.current
     if (this.data.caseBookList[index].waiting) {
       wx.showToast({
         title: '静候上线',
@@ -64,6 +102,13 @@ Page({
     } else {
       wx.navigateTo({
         url: `/pages/incident/incident?id=${index + 1}`,
+      })
+    }
+  },
+  handleChange: function (event) {
+    if (event.detail.source === 'touch') {
+      this.setData({
+        current: event.detail.current
       })
     }
   }
