@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/conan.iml" filepath="$PROJECT_DIR$/.idea/conan.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/conans-casebook-mp.iml" filepath="$PROJECT_DIR$/.idea/conans-casebook-mp.iml" />
     </modules>
   </component>
 </project>
