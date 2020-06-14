@@ -12,4 +12,9 @@
             </view>
         </scroll-view>
     </view>
+    <view class="tool-bar">
+        <button open-type="share" class="tool-item share-button">
+            <image class="share-icon" src="../../images/share-r.png"></image>
+        </button>
+    </view>
 </view>

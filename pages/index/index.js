@@ -72,7 +72,7 @@ Page({
     return {
       title: currentCase.title,
       path: index > 12 ? `/pages/index/index?id=${id}` : `/pages/incident/incident?id=${id}`,
-      imageUrl: currentCase.image === currentCase.url ?  `https://oss-materials.ifable.cn/conan/m${id}.jpg` : `https://oss-materials.ifable.cn/conan/m${id}h.jpg`
+      imageUrl: currentCase.image === currentCase.url ?  `https://oss-materials.ifable.cn/conan/m${id}.jpg` : `https://oss-materials.ifable.cn/conan/m${id === 21 ? 1 : id}h.jpg`
     }
   },
   handleRotate () {

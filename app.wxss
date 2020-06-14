@@ -1,4 +1,14 @@
 /**app.wxss**/
 .container {
   box-sizing: border-box;
-} 
+}
+.share-button {
+  padding: 0!important;
+  line-height: 0rpx!important;
+  border: none!important;
+  margin: 0!important;
+}
+.share-icon {
+  width: 50rpx;
+  height: 50rpx;
+}

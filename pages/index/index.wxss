@@ -93,3 +93,26 @@
     bottom: calc((100vh - 80vw * 7 / 5) / 2 + 40rpx);
     left: calc(50vw - 60rpx);
 }
+
+.tool-bar {
+    width: 100%;
+    position: absolute;
+    bottom: calc((100vh - 80vw * 7 / 5) / 2 - 150rpx);
+    left: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.tool-item {
+    display: flex;
+    font-size: 12px;
+    justify-content: center;
+    align-items: center;
+    width: 100rpx!important;
+    height: 100rpx;
+    border-radius: 50%;
+    background: #161823;
+    color: #e9f1f6;
+    box-shadow: 2px 2px 5px #161823;
+}
