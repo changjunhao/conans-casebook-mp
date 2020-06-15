@@ -14,7 +14,7 @@
     </swiper>
     <view class="tool-bar">
         <navigator wx:if="{{!caseBookList[current].waiting}}" url="/pages/incident/incident?id={{caseBookList[current].id}}" class="tool-item navigator-button">呈现</navigator>
-        <text wx:else class="tool-item navigator-button">静候</text>
+        <text wx:else class="tool-item navigator-button" catch:tap="handleNavigate">静候</text>
         <text class="tool-item indicator">{{current + 1}}/{{caseBookList.length}}</text>
         <button open-type="share" class="tool-item share-button">
             <image class="share-icon" src="../../images/share.png"></image>

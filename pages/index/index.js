@@ -33,9 +33,9 @@ Page({
     showGuide: false,
     showGuideOne: false,
     showGuideTwo: false,
-    times: 0,
   },
   onLoad (options) {
+    this.times = 0
     const showGuided = wx.getStorageSync('guide')
     if (!showGuided) {
       this.setData({
@@ -123,15 +123,15 @@ Page({
     }
   },
   handleGuide () {
-    if (this.data.times === 0) {
+    if (this.times === 0) {
       this.setData({
-        times: 1,
         showGuideOne: false,
         showGuideTwo: true
       })
-    } else if (this.data.times === 1) {
+      this.times = 1
+    } else if (this.times === 1) {
+      this.times = 0
       this.setData({
-        times: 0,
         showGuideOne: false,
         showGuideTwo: false,
         showGuide: false
