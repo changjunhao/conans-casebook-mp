@@ -1,6 +1,6 @@
 {
   "usingComponents": {
-    "audio-palyer": "/components/audio/audio-player"
+    "audio-palyer": "/components/audio-button/index"
   },
   "disableScroll": true
 }

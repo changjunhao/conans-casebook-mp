@@ -13,15 +13,10 @@
         </swiper-item>
     </swiper>
     <view class="tool-bar">
-        <navigator wx:if="{{!caseBookList[current].waiting}}" url="/pages/incident/incident?id={{caseBookList[current].id}}" class="tool-item navigator-button">呈现</navigator>
-        <text wx:else class="tool-item navigator-button" catch:tap="handleNavigate">静候</text>
-        <text class="tool-item indicator">{{current + 1}}/{{caseBookList.length}}</text>
         <button open-type="share" class="tool-item share-button">
-            <image class="share-icon" src="../../images/share.png"></image>
+            <image class="share-icon" src="../../images/share-r.png"></image>
         </button>
-    </view>
-    <view class="mask" wx:if="{{showGuide}}" bind:tap="handleGuide">
-        <image class="guide-1" src="../../images/guide1.png" wx:if="{{showGuideOne}}"></image>
-        <image class="guide-2" src="../../images/guide2.png" wx:if="{{showGuideTwo}}"></image>
+        <navigator wx:if="{{!caseBookList[current].waiting}}" url="/pages/incident/incident?id={{caseBookList[current].id}}" class="tool-item navigator-button">精彩呈现</navigator>
+        <text wx:else class="tool-item navigator-button" catch:tap="handleNavigate">静候上线</text>
     </view>
 </view>

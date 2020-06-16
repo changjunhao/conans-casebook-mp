@@ -2,7 +2,6 @@
     <view class="blur-view" style="background: url({{bgUrl}}) center;">
     </view>
     <view class="container-view">
-        <audio-palyer class="audio-player" src="{{music}}"></audio-palyer>
         <scroll-view class="incident-scroll-view" scroll-y enable-back-to-top scroll-anchoring>
             <image class="case-notice" src="{{caseNotice}}" lazy-load></image>
             <view class="incident-view" wx:for="{{section}}" wx:for-item="incident" wx:key="title">
@@ -13,6 +12,7 @@
         </scroll-view>
     </view>
     <view class="tool-bar">
+        <audio-palyer class="audio-player" src="{{music}}"></audio-palyer>
         <button open-type="share" class="tool-item share-button">
             <image class="share-icon" src="../../images/share-r.png"></image>
         </button>

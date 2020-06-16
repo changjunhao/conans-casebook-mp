@@ -1,0 +1,8 @@
+<view class="audio-player">
+    <view class="controls-play-button" wx:if="{{!playing}}" bind:tap="handlePlay"></view>
+    <view class="controls-pause-button" wx:else bind:tap="handlePause"></view>
+    <view class="bg-right-half-ring"></view>
+    <view class="front-left-half-ring" style="transform: rotate({{percent >= 180 ? 180 : percent}}deg);"></view>
+    <view class="bg-left-half-ring"></view>
+    <view class="right-half-ring"  style="transform: rotate({{percent <= 180 ? 0 : percent - 180}}deg); z-index: {{percent >= 180 ? 4 : 0}};"></view>
+</view>

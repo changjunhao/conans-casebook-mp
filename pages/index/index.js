@@ -29,20 +29,9 @@ const titles = [
 Page({
   data: {
     caseBookList: [],
-    current: 0,
-    showGuide: false,
-    showGuideOne: false,
-    showGuideTwo: false,
+    current: 0
   },
   onLoad (options) {
-    this.times = 0
-    const showGuided = wx.getStorageSync('guide')
-    if (!showGuided) {
-      this.setData({
-        showGuide: true,
-        showGuideOne: true,
-      })
-    }
     const id = options.id || 1
     const caseBookList = []
     for (let i = 0; i < 21; i++) {
@@ -122,24 +111,4 @@ Page({
       })
     }
   },
-  handleGuide () {
-    if (this.times === 0) {
-      this.setData({
-        showGuideOne: false,
-        showGuideTwo: true
-      })
-      this.times = 1
-    } else if (this.times === 1) {
-      this.times = 0
-      this.setData({
-        showGuideOne: false,
-        showGuideTwo: false,
-        showGuide: false
-      })
-      wx.setStorage({
-        key: 'guide',
-        data: true
-      })
-    }
-  }
 })

@@ -1,0 +1,65 @@
+.audio-player {
+    position: relative;
+    width: 100rpx;
+    height: 100rpx;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.bg-right-half-ring {
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 100rpx;
+    position: absolute;
+    clip: rect(0 100rpx 100rpx 50rpx);
+    box-sizing: border-box;
+    background: #e9f1f6;
+    z-index: 1;
+}
+.front-left-half-ring {
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 100rpx;
+    border: 4rpx solid #1bd1a5;
+    position: absolute;
+    clip: rect(0 50rpx 100rpx 0);
+    box-sizing: border-box;
+    z-index: 2;
+    transition-duration: 1s;
+}
+.bg-left-half-ring {
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 100rpx;
+    position: absolute;
+    clip: rect(0 50rpx 100rpx 0);
+    box-sizing: border-box;
+    background: #e9f1f6;
+    z-index: 3;
+}
+.right-half-ring {
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 100rpx;
+    border: 4rpx solid #1bd1a5;
+    position: absolute;
+    clip: rect(0 100rpx 100rpx 50rpx);
+    box-sizing: border-box;
+    transition-duration: 1s;
+}
+
+.controls-play-button, .controls-pause-button {
+    text-align: center;
+    background-size: 40rpx;
+    width: 48rpx;
+    height: 48rpx;
+    background-image: url("data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjMDAwMDAwIiBoZWlnaHQ9IjI0IiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxwYXRoIGQ9Ik04IDV2MTRsMTEtN3oiLz4KICAgIDxwYXRoIGQ9Ik0wIDBoMjR2MjRIMHoiIGZpbGw9Im5vbmUiLz4KPC9zdmc+");
+    background-repeat: no-repeat;
+    background-position: center center;
+    z-index: 999;
+    position: absolute;
+}
+.controls-pause-button {
+    background-image: url("data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjMDAwMDAwIiBoZWlnaHQ9IjI0IiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxwYXRoIGQ9Ik02IDE5aDRWNUg2djE0em04LTE0djE0aDRWNWgtNHoiLz4KICAgIDxwYXRoIGQ9Ik0wIDBoMjR2MjRIMHoiIGZpbGw9Im5vbmUiLz4KPC9zdmc+");
+}
