@@ -1,6 +1,9 @@
-import util from '../../utils/util'
+type AudioButtonData = {
+  playing: boolean;
+  percent: number;
+}
 
-Component({
+Component<AudioButtonData, WechatMiniprogram.Component.PropertyOption, WechatMiniprogram.Component.MethodOption, WechatMiniprogram.IAnyObject, boolean>({
   properties: {
     src: {
       type: String,
@@ -9,24 +12,14 @@ Component({
   },
   data: {
     playing: false,
-    duration: '00:00',
-    currentTime: '00:00',
     percent: 0,
   },
   lifetimes: {
     created () {
       this.audioContext = wx.createInnerAudioContext()
-      this.audioContext.onCanplay((a, b) => {
+      this.audioContext.onTimeUpdate(() => {
         this.setData({
-          duration: util.timeFilter(this.audioContext.duration),
-          currentTime: util.timeFilter(this.audioContext.currentTime)
-        })
-      })
-      this.audioContext.onTimeUpdate((a, b) => {
-        this.setData({
-          duration: util.timeFilter(this.audioContext.duration),
-          currentTime: util.timeFilter(this.audioContext.currentTime),
-          percent: this.audioContext.currentTime / this.audioContext.duration * 100
+          percent: this.audioContext.currentTime / this.audioContext.duration * 360
         })
       })
       this.audioContext.onPlay(() => {
@@ -54,14 +47,8 @@ Component({
   },
   observers: {
     'src': function(src) {
+      console.log(src)
       this.audioContext.src = src
-    }
-  },
-  pageLifetimes: {
-    show () {
-    },
-    hide () {
-      //this.audioContext.offTimeUpdate()
     }
   },
   methods: {

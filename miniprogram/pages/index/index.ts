@@ -1,6 +1,25 @@
-//index.js
-//获取应用实例
-// const app = getApp()
+// index.ts
+// 获取应用实例
+const app = getApp<IAppOption>()
+
+type CaseBookType = {
+  id: number;
+  title: string;
+  image: string;
+  url: string;
+  urlh: string;
+  logo: string;
+  titleLogo: string;
+  movd: 'https://oss-materials.ifable.cn/conan/mov-d.png',
+  move: 'https://oss-materials.ifable.cn/conan/mov-e.png',
+  year: number;
+  waiting: boolean;
+}
+
+type IndexData = {
+  caseBookList: CaseBookType[],
+  current: number;
+}
 
 const titles = [
   '计时引爆摩天楼',
@@ -26,14 +45,14 @@ const titles = [
   '枫红的恋歌',
 ]
 
-Page({
+Page<IndexData, WechatMiniprogram.Page.CustomOption>({
   data: {
     caseBookList: [],
     current: 0
   },
   onLoad (options) {
     const id = options.id || 1
-    const caseBookList = []
+    const caseBookList: CaseBookType[] = []
     for (let i = 0; i < 21; i++) {
       caseBookList.push({
         id: i + 1,
@@ -50,7 +69,7 @@ Page({
       })
     }
     this.setData({
-      current: id - 1,
+      current: Number(id) - 1,
       caseBookList: caseBookList
     })
   },
@@ -104,7 +123,7 @@ Page({
       })
     }
   },
-  handleChange (event) {
+  handleChange (event: WechatMiniprogram.CustomEvent) {
     if (event.detail.source === 'touch') {
       this.setData({
         current: event.detail.current

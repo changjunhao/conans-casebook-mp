@@ -1,5 +1,6 @@
-//app.js
-App({
+// app.ts
+App<IAppOption>({
+  globalData: {},
   onLaunch () {
     const updateManager = wx.getUpdateManager()
     updateManager.onCheckForUpdate(function (res) {
@@ -19,6 +20,4 @@ App({
       })
     })
   },
-  globalData: {
-  }
 })

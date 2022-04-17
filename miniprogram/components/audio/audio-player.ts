@@ -1,4 +1,13 @@
-Component({
+import { timeFilter } from '../../utils/util'
+
+type AudioData = {
+  playing: boolean;
+  duration: string;
+  currentTime: string;
+  percent: number;
+}
+
+Component<AudioData, WechatMiniprogram.Component.PropertyOption, WechatMiniprogram.Component.MethodOption, WechatMiniprogram.IAnyObject, boolean>({
   properties: {
     src: {
       type: String,
@@ -7,14 +16,24 @@ Component({
   },
   data: {
     playing: false,
+    duration: '00:00',
+    currentTime: '00:00',
     percent: 0,
   },
   lifetimes: {
     created () {
       this.audioContext = wx.createInnerAudioContext()
-      this.audioContext.onTimeUpdate((a, b) => {
+      this.audioContext.onCanplay(() => {
         this.setData({
-          percent: this.audioContext.currentTime / this.audioContext.duration * 360
+          duration: timeFilter(this.audioContext.duration),
+          currentTime: timeFilter(this.audioContext.currentTime)
+        })
+      })
+      this.audioContext.onTimeUpdate(() => {
+        this.setData({
+          duration: timeFilter(this.audioContext.duration),
+          currentTime: timeFilter(this.audioContext.currentTime),
+          percent: this.audioContext.currentTime / this.audioContext.duration * 100
         })
       })
       this.audioContext.onPlay(() => {
@@ -42,8 +61,14 @@ Component({
   },
   observers: {
     'src': function(src) {
-      console.log(src)
       this.audioContext.src = src
+    }
+  },
+  pageLifetimes: {
+    show () {
+    },
+    hide () {
+      //this.audioContext.offTimeUpdate()
     }
   },
   methods: {
