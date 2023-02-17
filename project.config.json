@@ -49,7 +49,7 @@
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {},
   "appid": "wx50384c4282c47155",
-  "libVersion": "2.23.3",
+  "libVersion": "2.30.0",
   "condition": {},
   "srcMiniprogramRoot": "miniprogram/",
   "editorSetting": {
