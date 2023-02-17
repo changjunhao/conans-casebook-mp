@@ -1,6 +1,6 @@
 {
   "name": "conans-casebook-mp",
-  "version": "1.0.0",
+  "version": "1.4.0",
   "description": "",
   "scripts": {
   },
@@ -10,6 +10,6 @@
   "dependencies": {
   },
   "devDependencies": {
-    "miniprogram-api-typings": "^3.4.6"
+    "miniprogram-api-typings": "^3.9.0"
   }
 }

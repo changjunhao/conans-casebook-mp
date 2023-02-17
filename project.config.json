@@ -1,7 +1,8 @@
 {
   "description": "项目配置文件",
   "packOptions": {
-    "ignore": []
+    "ignore": [],
+    "include": []
   },
   "miniprogramRoot": "miniprogram/",
   "compileType": "miniprogram",
@@ -49,5 +50,10 @@
   "simulatorPluginLibVersion": {},
   "appid": "wx50384c4282c47155",
   "libVersion": "2.23.3",
-  "condition": {}
+  "condition": {},
+  "srcMiniprogramRoot": "miniprogram/",
+  "editorSetting": {
+    "tabIndent": "insertSpaces",
+    "tabSize": 2
+  }
 }

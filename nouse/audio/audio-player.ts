@@ -1,4 +1,4 @@
-import { timeFilter } from '../../utils/util'
+import { timeFilter } from '../utils/util'
 
 type AudioData = {
   playing: boolean;

@@ -49,10 +49,24 @@ Page<IncidentData, WechatMiniprogram.Page.CustomOption>({
       }
     })
   },
+  onAddToFavorites (): WechatMiniprogram.Page.IAddToFavoritesContent {
+    return {
+      title: this.data.title,
+      query: `id=${this.data.id}`,
+      imageUrl: `https://oss-materials.ifable.cn/conan/m${this.data.id}.jpg`
+    }
+  },
   onShareAppMessage () {
     return {
       title: this.data.title,
       path: `/pages/incident/incident?id=${this.data.id}`,
+      imageUrl: `https://oss-materials.ifable.cn/conan/m${this.data.id}.jpg`
+    }
+  },
+  onShareTimeline (): WechatMiniprogram.Page.ICustomTimelineContent | void {
+    return {
+      title: this.data.title,
+      query: `id=${this.data.id}`,
       imageUrl: `https://oss-materials.ifable.cn/conan/m${this.data.id}.jpg`
     }
   }
